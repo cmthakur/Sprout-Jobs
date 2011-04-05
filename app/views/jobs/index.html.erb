@@ -1,2 +1,6 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<h1>Jobs</h1>
+<% @jobs.each do |job|%>
+<%= link_to "#{job.title}", job_path(job) %>
+<%= link_to "Delete", job_path(job), :confirm =>"Are you sure?", :method => :delete %>
+<% end %>
+

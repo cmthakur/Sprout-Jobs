@@ -9,7 +9,7 @@ class CreateApplicants < ActiveRecord::Migration
       t.string :experience
       t.text :why_sprout
       t.text :why_you
-
+      t.integer :job_id
       t.timestamps
     end
   end

@@ -1,11 +1,12 @@
 Sproutjobs::Application.routes.draw do
-  get "applicants/index"
+devise_for :admins
 
-  get "applicants/show"
-
-  get "jobs/index"
-
-  get "jobs/show"
+resources :jobs do
+  collection do
+    get 'search'
+  end
+end
+resources :applicants
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +57,7 @@ Sproutjobs::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "jobs#index"
 
   # See how all your routes lay out with "rake routes"
 

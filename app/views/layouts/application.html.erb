@@ -3,12 +3,77 @@
 <head>
   <title>Sproutjobs</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'jquery.min.js','jquery-ui.min.js','jquery.odoticker.js','rails','application.js' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="wrapper">
+  <a name="top"></a>
+  <div id="header">
+    <div id="branding"><p><span class="templogo">Sprout Jobs</span><br />Jobs for all !!!</p></div>
+  </div>
+  <!-- <div id="menu">
+    <ul>
+      <li><a href="http://www.oswd.org" title="Open Source Web Design">Open Source Web Design</a></li>
+      <li class="active"><a href="#" title="Google">Ultra 77 Template</a></li>
+      <li><a href="http://www.google.com" title="Google">Google</a></li>
+      <li><a href="http://www.oswd.org" title="Menu Item">Menu Item</a></li>
+      <li><a href="http://www.oswd.org" title="Menu Item">Menu Item</a></li>
+    </ul>
+  </div> --> <!-- end top menu -->
 
+  <!-- bodywrap -->
+  <div id="bodytop">&nbsp;</div>
+  <div id="bodywrap">
+
+    <div id="contentbody">
+
+  <!-- content here
+  ============================================================ -->
+  <a name="content"></a>
+  <%= notice %>
+  <%= alert %>
 <%= yield %>
+
+    </div>
+
+  </div> <!-- end bodywrap -->
+
+  <div id="bodybottom">&nbsp;</div>
+
+
+  <!-- footer -->
+  <div id="footer">
+  <p>&copy; 2030 Sprout technologies</p>
+  <ul>
+  <li><a href="http://www.oswd.org" title="Another Item">Another Item</a></li>
+  <li><a href="http://www.oswd.org" title="Open Source Web Design">Open Source Web Design</a></li>
+
+  </ul>
+  </div> <!-- end footer -->
+
+  <!-- side menu  -->
+  <div id="sidemenu">
+    <div id="smtop">&nbsp;</div>
+    <div id="smtitle">
+      <h1>Search</h1>
+    </div>
+    <div id='search'>
+      <% form_tag search_jobs_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+    <!-- side menu current page title -->
+    <!-- <ul class="normal">
+          <li><a href="http://www.oswd.org" title="This is the description.">Sub Page</a></li>
+          <li><a href="#" title="This is the description." class="currentpage">Current Page</a></li>
+          <li><a href="http://www.oswd.org" title="This is the description.">Sub Page</a></li>
+          <li><a href="http://www.oswd.org" title="This is the description.">Sub Page</a></li>
+        </ul> -->
+  <div id="smbottom">&nbsp;</div></div> <!-- end side menu -->
+
+  </div> <!-- end wrapper -->
 
 </body>
 </html>

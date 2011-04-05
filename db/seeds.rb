@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+[
+{:title => "Management", :description => "Managing", :deadline => "2012-2-2"},
+{:title => "Programmer", :description => "Programming", :deadline => "2012-2-2"},
+{:title => "Developer", :description => "Developing", :deadline => "2012-2-2"},
+{:title => "Clerk", :description => "Clerking", :deadline => "2012-2-2"}
+].each do |attrs|
+  job= Job.find_or_create_by_title(attrs)
+end
