@@ -7,7 +7,7 @@ class Job < ActiveRecord::Base
 
   def self.search(parameters)
     if parameters
-      find(:all, :conditions => ['title LIKE ?', "%#{parameters}%"])
+      find(:all, :conditions => ['title LIKE ? or description LIKE ?', "%#{parameters}%", "%#{parameters}%"])
     else
       find(:all)
     end
