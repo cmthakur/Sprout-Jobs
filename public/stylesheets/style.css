@@ -1,12 +1,4 @@
-/* The ultra77 template is designed and released by Ian Smith
-of N-vent Design Services LLC - www.n-vent.com. Feel free to
-use this, but please don't sell it and kindly leave the credits
-intact. Muchas Gracias!
 
-January 2007
-
-global styles
-============================== */
 body {
     position: relative;
     color: gray;
@@ -61,7 +53,9 @@ a:hover {
     color: red;
     }
 
-
+header{
+    float:left;
+}
 
 /* header styles
 ============================== */

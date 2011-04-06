@@ -1,14 +1,23 @@
-<h1>Jobs#show</h1>
-<%= @job.title %>
-
-<%= @job.description %>
-
-<%= @job.experience %> years
-
-<%= @job.deadline %>
-
 <% if admin_signed_in? %>
+ <h1><%= @job.title %></h1>
+ <%= form_tag(process_short_list_job_path(@job), :method => 'post') do %>
+<% @applicants.each do |applicant|%>
+  <%= applicant.name %> |
+  <%= applicant.dob %> |
+  <%= applicant.education %>|
+  <%= applicant.experience %> |
+  <%=check_box_tag("arr[]","#{applicant.id}", checked = false)%>
+  <br />
+<% end %>
+<%= submit_tag %>
+<% end %>
+<%=%>
   <%=link_to "Admin" %>
-  <% else %>
+
+<% else %>
+  <%= @job.title %>
+  <%= @job.description %>
+  <%= @job.experience %> years
+  <%= @job.deadline %>
   <%= link_to "Apply Now", new_job_applicant_path(@job)%>
 <% end %>

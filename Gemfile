@@ -8,6 +8,7 @@ gem 'rails', '3.0.5'
 gem 'sqlite3'
 gem 'devise'
 gem 'formtastic','~>1.2.0'
+gem 'ckeditor', '3.4.2.pre'
 
 # Use unicorn as the web server
 # gem 'unicorn'
