@@ -1,5 +1,6 @@
-<%= semantic_form_for @applicant do |f| %>
+<%= semantic_form_for ([@job,@applicant]) do |f| %>
   <%= f.inputs do%>
+
     <%= f.input :name %>
     <%= f.input :dob %>
     <%= f.input :email, :as => :email %>

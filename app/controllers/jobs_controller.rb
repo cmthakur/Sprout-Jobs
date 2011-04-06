@@ -1,11 +1,17 @@
 class JobsController < ApplicationController
+
+  before_filter :authenticate_admin! ,:except => :show, :except => :search
+
   def index
-    @jobs = Job.all
+     @jobs = Job.where('deadline > ?',Date.today).order('created_at desc').limit(3)
   end
 
   def show
     @job = Job.find(params[:id])
   end
+  def show_archived_jobs
+     @jobs = Job.order('created_at desc')
+   end
 
   def new
     @job = Job.new

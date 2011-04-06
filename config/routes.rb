@@ -4,7 +4,9 @@ devise_for :admins
 resources :jobs do
   collection do
     get 'search'
+    get 'show_archived_jobs'
   end
+  resources :applicants
 end
 resources :applicants
 

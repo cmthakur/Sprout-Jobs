@@ -23,6 +23,14 @@
   </div> --> <!-- end top menu -->
 
   <!-- bodywrap -->
+  <div id="welcome">
+  <% if admin_signed_in? %>
+      <%="Welcome #{current_admin.email}" %>
+      <%= link_to "Sign Out" , destroy_admin_session_path %>
+    <% else %>
+    <%= "Welcome Applicant "%>
+  <% end %>
+</div>
   <div id="bodytop">&nbsp;</div>
   <div id="bodywrap">
 

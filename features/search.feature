@@ -8,5 +8,5 @@ Scenario: Check search feature
   And I fill in "search" with "man"
   And I press "Search"
   And I sleep for 2 seconds
-  And I visit the search_jobs page
+  And I go to the search jobs page
   Then I should see "Management"

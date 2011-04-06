@@ -6,3 +6,9 @@
 <%= @job.experience %> years
 
 <%= @job.deadline %>
+
+<% if admin_signed_in? %>
+  <%=link_to "Admin" %>
+  <% else %>
+  <%= link_to "Apply Now", new_job_applicant_path(@job)%>
+<% end %>
