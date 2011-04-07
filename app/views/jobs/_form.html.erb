@@ -1,9 +1,11 @@
 <%= semantic_form_for @job do |f| %>
   <%= f.inputs do%>
     <%= f.input :title %>
-    <%= f.input :description, :as => :ckeditor, :width=>'100px', :height=>'100px' %>
+    <%= f.input :description, :as => :text %>
+    <%#ckeditor, :width=>'100px', :height=>'100px' %>
     <%= f.input :category, :as => :select, :collection => Category.find(:all) %>
-    <%= link_to "Add Category", new_category_path, html_options = {:rel => "lightbox"}%>
+    <%= link_to "Add Category", new_category_path , :remote => true %>
+    <div id = "new_category"></div>
     <%= f.input :experience, :as => :select,   :collection => ["0-1", "1-2", "2-3", "3-5", "5+"] %>
     years
     <%= f.input :deadline, :as => :string %>

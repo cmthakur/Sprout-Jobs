@@ -5,10 +5,11 @@ class Sendmail < ActionMailer::Base
      mail(:to => "jobs@sprout.com", :from => user.email,
           :subject => "New Application received")
   end
-  def admin_to_applicant(admin,applicant)
+
+  def admin_to_applicant(admin_email,user)
     @user = user
     attachments['map.jpg'] = File.read("#{Rails.root}/public/images/map.jpg")
-    mail(:from => admin.email, :to => user.email,
+    mail(:from => admin_email, :to => user.email,
           :subject => "Call for Interview")
   end
 end

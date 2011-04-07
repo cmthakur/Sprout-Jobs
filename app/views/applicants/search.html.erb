@@ -1,0 +1,4 @@
+<% @applicants.each do |applicant|%>
+
+<%= link_to "#{applicant.name}", applicant_path(applicant) %>
+<% end %>

@@ -7,8 +7,12 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
-    @applicants = @job.applicants.all
+     @job = Job.find(params[:id])
+    if params[:list]
+      @applicants = eval("@job.applicants." + params[:list])
+     else
+       @applicants = @job.applicants.all
+   end
   end
 
   def show_archived_jobs
@@ -18,14 +22,13 @@ class JobsController < ApplicationController
   def process_short_list
     @job = Job.find(params[:id])
     @applicants = Array.new
-     if params[:arr]
+    if params[:arr]
        params[:arr].each_with_index do |key, value|
          @applicant = Applicant.find(key)
          @applicants << @applicant
        end
-       redirect_to process_short_list_job_path, :notice => 'Shortlisted'
+       @action = params[:selector]
      end
-
   end
 
   def new

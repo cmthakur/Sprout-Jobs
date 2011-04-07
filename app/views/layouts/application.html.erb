@@ -12,25 +12,22 @@
   <div id="header">
     <div id="branding"><p><span class="templogo">Sprout Jobs</span><br />Jobs for all !!!</p></div>
   </div>
-  <!-- <div id="menu">
+  <div id="menu">
     <ul>
-      <li><a href="http://www.oswd.org" title="Open Source Web Design">Open Source Web Design</a></li>
-      <li class="active"><a href="#" title="Google">Ultra 77 Template</a></li>
-      <li><a href="http://www.google.com" title="Google">Google</a></li>
-      <li><a href="http://www.oswd.org" title="Menu Item">Menu Item</a></li>
-      <li><a href="http://www.oswd.org" title="Menu Item">Menu Item</a></li>
+       <div id="welcome">
+        <% if admin_signed_in? %>
+            <%="Welcome #{current_admin.email}" %>
+            <%=link_to "New Admin" , new_admin_registration_path %>
+            <%= link_to "Sign Out" , destroy_admin_session_path %>
+          <% else %>
+          <%= "Welcome Applicant "%>
+        <% end %>
+      </div>
     </ul>
-  </div> --> <!-- end top menu -->
+  </div> <!-- end top menu -->
 
   <!-- bodywrap -->
-  <div id="welcome">
-  <% if admin_signed_in? %>
-      <%="Welcome #{current_admin.email}" %>
-      <%= link_to "Sign Out" , destroy_admin_session_path %>
-    <% else %>
-    <%= "Welcome Applicant "%>
-  <% end %>
-</div>
+
   <div id="bodytop">&nbsp;</div>
   <div id="bodywrap">
 
@@ -64,14 +61,26 @@
   <div id="sidemenu">
     <div id="smtop">&nbsp;</div>
     <div id="smtitle">
-      <h1>Search</h1>
+      <h1>Search Jobs</h1>
     </div>
-    <div id='search'>
+    <div id='search_jobs'>
       <%= form_tag search_jobs_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil %>
       <% end %>
     </div>
+
+    <% if admin_signed_in? %>
+    <h1>Search Applicants</h1>
+    <div id='search_applicants'>
+      <%= form_tag search_applicants_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+      <% end %>
+    </div>
+
+
     <!-- side menu current page title -->
     <!-- <ul class="normal">
           <li><a href="http://www.oswd.org" title="This is the description.">Sub Page</a></li>

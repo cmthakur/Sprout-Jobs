@@ -1,11 +1,15 @@
 class ApplicantsController < ApplicationController
+
   def index
     @applicants = Applicant.all
     @jobs = Job.where('deadline > ?',Date.today).order('created_at desc').limit(3)
   end
 
   def show
-    @job = Job.find(params[:id])
+    #@job = Job.find(params[:job_id])
+    @applicant = Applicant.find(params[:id])
+    job_id = @applicant.job_id
+    @job = Job.find(job_id)
   end
   def new
     @applicant = Applicant.new
@@ -22,5 +26,7 @@ class ApplicantsController < ApplicationController
     end
   end
 
-
+  def search
+    @applicants = Applicant.search(params[:search])
+  end
 end

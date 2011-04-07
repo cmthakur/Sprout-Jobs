@@ -1,17 +1,39 @@
 <% if admin_signed_in? %>
- <h1><%= @job.title %></h1>
- <%= form_tag(process_short_list_job_path(@job), :method => 'post') do %>
-<% @applicants.each do |applicant|%>
-  <%= applicant.name %> |
+
+  <h1><%= @job.title %></h1>
+
+    <%= form_tag(job_path(@job), :method => 'post') do %>
+        <%= select_tag(:list,     options_for_select([['All',"all"],['Accepted',"accepted"],['Rejected',"rejected"]]))%>
+        <%= submit_tag %>
+    <% end %>
+
+  <%= form_tag(process_short_list_job_path(@job), :method => 'post') do %>
+
+  <% @applicants.each do |applicant|%>
+  <%= link_to applicant.name, applicant_path(applicant), :remote => true %> |
   <%= applicant.dob %> |
   <%= applicant.education %>|
   <%= applicant.experience %> |
+
+  <% if(applicant.accepted == true) %>
+  Accepted
+  <% elsif(applicant.accepted == false) %>
+  Rejected
+  <% else %>
+  Pending
+  <% end%>
+
+  <% if (applicant.accepted == nil)%>
   <%=check_box_tag("arr[]","#{applicant.id}", checked = false)%>
+  <% end %>
   <br />
-<% end %>
-<%= submit_tag %>
-<% end %>
-<%=%>
+  <% end %>
+
+  <%= select_tag(:selector, options_for_select([['Accept',1],['Reject',2],['Review Later',3]],1))%>
+  <%= submit_tag %>
+  <% end %>
+  <div id = "applicants"></div>
+  <%=%>
   <%=link_to "Admin" %>
 
 <% else %>

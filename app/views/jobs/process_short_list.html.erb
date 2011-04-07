@@ -1,5 +1,16 @@
 <%= @job.title %>
-
 <% @applicants.each do |applicant| %>
-  <%= applicant.name %>
-<% end %>
+  <% if @action == '1' %>
+  <% applicant.accepted = true %>
+  <% applicant.save %>
+  <% Sendmail.admin_to_applicant("#{current_admin.email}",@applicant).deliver %>
+  <%= flash[:notice] = "The applicants have been accepted and a mail has been sent" %>
+  <% elsif @action == '2' %>
+  <% applicant.accepted = false %>
+  <% applicant.save %>
+  <%= flash[:notice] = "The applicants have been rejected" %>
+  <% else%>
+  <%= flash[:notice] = "The applicants have been reserved for review" %>
+  <% end %>
+  <%= applicant.name %> | <%= applicant.accepted %><br />
+  <% end %>

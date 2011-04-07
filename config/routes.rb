@@ -2,17 +2,22 @@ Sproutjobs::Application.routes.draw do
 devise_for :admins
 
 resources :jobs do
-    member do
-    post 'process_short_list'
-    end
+
+    post 'show', :on => :member
+    post 'process_short_list', :on => :member
     collection do
       get 'search'
       get 'show_archived_jobs'
     end
   resources :applicants
 end
-resources :applicants
+
+resources :applicants do
+    get 'search', :on => :collection
+end
+
 resources :categories
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
