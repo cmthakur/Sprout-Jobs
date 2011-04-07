@@ -1,7 +1,8 @@
 <%= semantic_form_for @category do |f| %>
   <%= f.inputs do%>
     <%= f.input :name %>
+
+    <% end %>
     <%=f.buttons %>
     <%= f.semantic_errors :alert%>
-    <% end %>
 <% end %>
