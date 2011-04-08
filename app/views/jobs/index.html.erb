@@ -2,9 +2,9 @@
 
 <% @jobs.each do |job|%>
 <h2><%= link_to "#{job.title}", job_path(job) %></h2>
-<%= link_to "Edit", edit_job_path(job) %>
-<%= link_to "Delete", job_path(job), :confirm =>"Are you sure?", :method => :delete %>
+<%= link_to "Edit details", edit_job_path(job) %>
+<%= link_to "Remove this Job", job_path(job), :confirm =>"Are you sure?", :method => :delete %>
 <br />
 <% end %>
-<%=link_to "See All ", show_archived_jobs_jobs_path %>
+<%=link_to "Show Archived Jobs", show_archived_jobs_jobs_path %>
 

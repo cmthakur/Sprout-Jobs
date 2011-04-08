@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     respond_to do |format|
       if @category.save
-        format.js
+        format.js {}
       else
         format.js {render :js => "alert(Cannot create a category);"}
       end

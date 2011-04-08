@@ -6,7 +6,6 @@ class ApplicantsController < ApplicationController
   end
 
   def show
-    #@job = Job.find(params[:job_id])
     @applicant = Applicant.find(params[:id])
     job_id = @applicant.job_id
     @job = Job.find(job_id)

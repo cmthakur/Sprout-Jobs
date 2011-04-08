@@ -1,15 +1,19 @@
 <%= semantic_form_for ([@job,@applicant]) do |f| %>
+  <div id ="applicant_form_message">Please take some time to answer a few questions about yourself</div>
+  <div id ="applicant_form">
   <%= f.inputs do%>
 
-    <%= f.input :name %>
-    <%= f.input :dob %>
-    <%= f.input :email, :as => :email %>
-    <%= f.input :phone %>
-    <%= f.input :education, :as => :select, :collection => ["SLC", "Intermediate", "Bachelors", "Masters", "N/A"] %>
-    <%= f.input :experience, :as => :select,   :collection => ["0-1", "1-2", "2-3", "3-5", "5+"] %>
-    <%= f.input :why_sprout, :as => :text %>
-    <%= f.input :why_you, :as => :text %>
-    <%=f.buttons %>
-    <%= f.semantic_errors :alert%>
+    <%= f.input :name, :label =>"Tell us your name" %>
+    <%= f.input :why_you, :label =>"Tell us more about yourself....", :as => :text %>
+    <%= f.input :education, :label =>"What is your most recent educational degree?", :as => :select, :collection => ["SLC", "Intermediate", "Bachelors", "Masters", "N/A"], :include_blank => false %>
+    <%= f.input :experience, :as => :select, :label =>"Have you had any past experience?", :collection => ["0-1", "1-2", "2-3", "3-5", "5+"], :include_blank => false %>years
+    <%= f.input :dob, :label =>"You were born on", :as => :date, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10 %>
+    <%= f.input :email, :label =>"Where do we email you?", :as => :email %>
+    <%= f.input :phone, :label =>"Where do we call you?" %>
+    <%= f.input :why_sprout, :label =>"Why did you choose Sprout?", :as => :text %>
   <% end %>
+      <% f.buttons do %>
+      <%= f.commit_button :button_html => { :value => "Choose Me" } %>
+    <% end %>
+    </div>
 <% end %>
