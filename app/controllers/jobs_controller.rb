@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   before_filter :authenticate_admin! ,:except => [:show,:search]
 
   def index
-     @jobs = Job.where('deadline > ?',Date.today).order('created_at desc').limit(3)
+     @jobs = Job.where('deadline > ?',Date.today).order('created_at desc').limit(4)
   end
 
   def show
@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     if params[:list]
       @applicants = eval("@job.applicants." + params[:list])
      else
-       @applicants = @job.applicants.all
+       @applicants = @job.applicants.order('accepted ASC')
    end
   end
 
@@ -36,7 +36,8 @@ class JobsController < ApplicationController
   end
 
   def create
-    if @job = Job.create(params[:job])
+    @job = Job.create(params[:job])
+    if @job.save
     redirect_to jobs_path, :notice => 'New Job Created'
     else
       render :action => "new", :alert => 'Job could not be created. Try again.'

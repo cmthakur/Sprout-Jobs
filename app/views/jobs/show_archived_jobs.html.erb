@@ -1,6 +1,9 @@
 <% @jobs.each do |job|%>
-<h2><%= link_to "#{job.title}", job_path(job) %></h2>
+<div id = "job_wrapper">
+<div id = "job_title"><%= link_to "#{job.title}", job_path(job) %></div>
+<%= link_to "Edit", edit_job_path(job) %> |
 <%= link_to "Delete", job_path(job), :confirm =>"Are you sure?", :method => :delete %>
-<br />
+</div>
 <% end %>
+
 <%=link_to "Back", jobs_path %>

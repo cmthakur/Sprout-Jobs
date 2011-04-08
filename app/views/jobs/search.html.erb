@@ -1,3 +1,4 @@
+Search Results:<br />
 <% @jobs.each do |job|%>
-<%= link_to "#{job.title}", job_path(job) %>
+<div id="search_jobs"><%= link_to "#{job.title}", job_path(job) %></div>
 <% end %>

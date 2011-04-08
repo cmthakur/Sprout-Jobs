@@ -1,19 +1,21 @@
 <%= semantic_form_for ([@job,@applicant]) do |f| %>
-  <div id ="applicant_form_message">Please take some time to answer a few questions about yourself</div>
-  <div id ="applicant_form">
+<div id ="applicant_form_message">Please take some time to answer a few questions about yourself</div>
+<br />
+<div id ="applicant_form">
   <%= f.inputs do%>
 
-    <%= f.input :name, :label =>"Tell us your name" %>
-    <%= f.input :why_you, :label =>"Tell us more about yourself....", :as => :text %>
-    <%= f.input :education, :label =>"What is your most recent educational degree?", :as => :select, :collection => ["SLC", "Intermediate", "Bachelors", "Masters", "N/A"], :include_blank => false %>
-    <%= f.input :experience, :as => :select, :label =>"Have you had any past experience?", :collection => ["0-1", "1-2", "2-3", "3-5", "5+"], :include_blank => false %>years
-    <%= f.input :dob, :label =>"You were born on", :as => :date, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10 %>
-    <%= f.input :email, :label =>"Where do we email you?", :as => :email %>
-    <%= f.input :phone, :label =>"Where do we call you?" %>
-    <%= f.input :why_sprout, :label =>"Why did you choose Sprout?", :as => :text %>
+  <%= f.input :name, :label =>"Tell us your name", :input_html => { :size => 20} %>
+  <%= f.input :why_you, :label =>"Tell us more about yourself....", :as => :text , :input_html => { :rows => 10, :cols => 50, :maxlength => 500  } %>
+  <%= f.input :education, :label =>"What is your most recent educational degree?", :as => :select, :collection => ["SLC", "Intermediate", "Bachelors", "Masters", "N/A"], :include_blank => false %>
+  <%= f.input :experience, :as => :select, :label =>"Have you had any past experience(in years)?", :collection => ["None","0-1", "1-2", "2-3", "3-5", "5+"], :include_blank => false %>
+  <%= f.input :dob, :label =>"You were born on", :as => :date, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10, :id => "date_field" %>
+  <%= f.input :email, :label =>"Where do we email you?", :as => :email, :input_html => { :size => 20} %>
+  <%= f.input :phone, :label =>"What is your phone number?", :input_html => { :size => 20} %>
+  <%= f.input :why_sprout, :label =>"Why did you choose Sprout?", :as => :text, :input_html => { :rows => 10, :cols => 50, :maxlength => 500  } %>
   <% end %>
-      <% f.buttons do %>
-      <%= f.commit_button :button_html => { :value => "Choose Me" } %>
-    <% end %>
-    </div>
+
+  <% f.buttons do %>
+  <%= f.commit_button :button_html => { :value => "Choose Me" } %>
+  <% end %>
+</div>
 <% end %>

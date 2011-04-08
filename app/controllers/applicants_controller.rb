@@ -17,9 +17,10 @@ class ApplicantsController < ApplicationController
 
   def create
     @job = Job.find(params[:job_id])
-    if @applicant = @job.applicants.create(params[:applicant])
+    @applicant = @job.applicants.create(params[:applicant])
+    if @applicant.save
       Sendmail.applicant_to_admin(@applicant).deliver
-      redirect_to applicants_path, :notice => 'Application filed'
+      redirect_to applicants_path, :notice => 'Your application has been sent. Thank You.'
     else
       render :action => "new", :alert => 'Please try again.'
     end

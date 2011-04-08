@@ -1,10 +1,13 @@
-<header><%=link_to "Post New Job", new_job_path %> </header>
-
+<div id = "post_new_job"><%=link_to image_tag("postjob.jpg"), new_job_path %> </div>
+<div id = "admin_job_list">
 <% @jobs.each do |job|%>
-<h2><%= link_to "#{job.title}", job_path(job) %></h2>
-<%= link_to "Edit details", edit_job_path(job) %>
+<div id = "job_wrapper">
+<div id = "job_title"><%= link_to "#{job.title}", job_path(job) %></div>
+<%= link_to "Edit", edit_job_path(job) %> |
 <%= link_to "Remove this Job", job_path(job), :confirm =>"Are you sure?", :method => :delete %>
+</div>
 <br />
 <% end %>
-<%=link_to "Show Archived Jobs", show_archived_jobs_jobs_path %>
+</div>
+<%=link_to "Show All Jobs", show_archived_jobs_jobs_path %>
 

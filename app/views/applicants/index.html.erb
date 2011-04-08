@@ -1,6 +1,13 @@
-<div id = 'hire-statement'>We have hired <div id="ticker" value= "<%= "#{Applicant.where(:accepted => true).count}" %>"></div> You can be the next</div>
-Active Jobs
+<div id = 'hire-statement'>We have hired </div>
+<div id="ticker" value = "<%= "#{Applicant.where(:accepted => true).count}" %>"> </div>
+<div id ="next"> You can be the next</div>
+<p id="active_jobs_title">Active Jobs</p>
+<div id ="active_jobs">
 <% @jobs.each do |job|%>
-<%= link_to "#{job.title}", job_path(job) %>
+<div id ="job">
+<span id ="job_title"><%= link_to "#{job.title}", job_path(job) %></span>
+<br />
+</div>
 <% end %>
+</div>
 

@@ -7,14 +7,14 @@ body {
     font: 75% Arial, Helvetica, sans-serif;
     min-width:800px;
     background: #fff url(../images/bg.png) repeat-y center;
-    }
+}
 #wrapper{
     position: relative;
     padding: 0;
     margin: 0 auto;
     width: 821px;
     background: url(../images/bg.png) repeat-y;
-    }
+}
 #wrapper:after {
     content: ".";
     display: block;
@@ -23,35 +23,35 @@ body {
     visibility: hidden;
     position: relative;
     border: 0;
-    }
+}
 h1, h2, h3{
     font-weight: bold;
     padding: 10px 0 0 0;
     margin: 0;
-    }
+}
 h1{
     font-size: 130%;
     color: black;
     border-bottom: 1px dashed silver;
-    }
+}
 h2{
     font-size: 110%;
     color: black;
     border-bottom: 1px dashed #e8e8e8;
-    }
+}
 h3{
     font-size: 100%;
     color: #80a1cd;
-    }
+}
 a:link {
     color: #3D82C7;
-    }
+}
 a:visited {
     color: #234D76;
-    }
+}
 a:hover {
     color: red;
-    }
+}
 
 header{
     float:left;
@@ -64,14 +64,14 @@ header{
     position: relative;
     height: 138px;
     background: url(../images/hbg.png) no-repeat center;
-    }
+}
 #branding {
     position: relative;
     left: 15px;
     top: 25px;
     width: 300px;
     height: 110px;
-    }
+}
 #pagedescription{
     position: relative;
     top: 50px;
@@ -80,24 +80,24 @@ header{
     text-align: right;
     line-height: 100%;
     clear: both;
-    }
+}
 #pagedescription h2{
     font-weight: normal;
     color: gray;
     padding: 0;
     margin: 0;
-    }
+}
 #pagedescription h1 {
     font-weight: normal;
     border: 0;
     padding: 0;
     margin: 0;
-    }
+}
 
 /* feel free to delete this class. */
 .templogo {
     font-size: 3em;
-    }
+}
 
 
 
@@ -111,37 +111,37 @@ header{
     height: 38px;
     background: url(../images/mbg.png) no-repeat center;
     text-align: center;
-    }
+}
 #menu ul {
     position: relative;
     top: 10px;
     padding: 0;
-    }
+}
 #menu li,
 #footer li{
     display: inline;
     padding: 0 6px;
-    }
+}
 #menu li a{
     display: inline;
     color: black;
     text-decoration: none;
-    }
+}
 #menu li a:hover,
 #menu li a:focus{
     font-weight: bolder;
     text-decoration: underline;
-    }
+}
 .active{
     font-weight: bolder;
-    }
+}
 #sidemenu {
     margin-top: 10px;
     position: absolute;
     top: 200px;
     width: 194px;
     background: url(../images/body-bg.png) repeat-x center;
-    }
+}
 #smtop,
 #smbottom{
     position: relative;
@@ -151,10 +151,10 @@ header{
     margin: 0;
     padding: 0;
     clear: both;
-    }
+}
 #smbottom{
     background: url(../images/sm-bottom.png) no-repeat center;
-    }
+}
 #sidemenu ul,
 #smtitle{
     list-style: none;
@@ -162,16 +162,16 @@ header{
     margin: 0;
     width: 194px;
     background:  url(../images/sm-bg.png) repeat-y center;
-    }
+}
 #smtitle h1{
     padding: 10px;
     font: normal normal bolder 120% Arial, Helvetica, sans-serif;
     border: 0;
-    }
+}
 #sidemenu li{
     padding: 3px 0 3px 1px;
     display: block;
-    }
+}
 #sidemenu li a{
     line-height: 18px;
     padding-left: 24px;
@@ -179,14 +179,14 @@ header{
     display: block;
     height: 19px;
     text-decoration: none;
-    }
+}
 #sidemenu li a:hover,
 #sidemenu li a:focus{
     background: url(../images/sm-over.png) no-repeat center;
-    }
+}
 #sidemenu li a.currentpage {
     background: url(../images/sm-urhere.png) no-repeat center;
-    }
+}
 
 
 
@@ -200,7 +200,8 @@ header{
     min-height: 200px;
     text-align: center;
     background: url(../images/body-bg.png) repeat-y left;
-    }
+overflow:hidden;
+}
 #bodytop,
 #bodybottom{
     position: relative;
@@ -211,13 +212,13 @@ header{
     line-height: 12px;
     margin: 0;
     padding: 0;
-    }
+}
 #bodytop {
     margin-top: 10px;
-    }
+}
 #bodybottom{
     background: url(../images/body-bottom.png) no-repeat center;
-    }
+}
 #contentbody{
     position: relative;
     padding: 0 15px 0 45px;
@@ -225,21 +226,21 @@ header{
     border: 0;
 
     text-align: left;
-    }
+}
 #contentbody p{
     padding: 3px 0;
     margin: 0;
-    }
+}
 #contentbody ul,
 #contentbody ol{
     padding: 3px 0;
     margin: 0 18px;
     list-style: outside;
-    }
+}
 #contentbody img {
     border: 0;
     float: right;
-    }
+}
 
 
 /* footer styles
@@ -253,37 +254,37 @@ header{
     background: url(../images/footerbg.png) no-repeat center;
     text-align: center;
     font-size: 9px;
-    }
+}
 #footer p{
     position: relative;
     top: 13px;
     padding: 0;
     padding-left: 15px;
     display: inline;
-    }
+}
 #footer ul{
     display: inline;
     position: relative;
     top: 13px;
     padding: 0;
-    }
+}
 #footer li{
     padding: 0 0 0 10px;
     display: inline;
     list-style: none outside;
-    }
+}
 #footer a:link {
     color: #000;
     text-decoration: none;
-    }
+}
 #footer a:visited {
     color: gray;
     text-decoration: none;
-    }
+}
 #footer a:hover {
     color: #000;
     text-decoration: underline;
-    }
+}
 
 
 /* Ticker */
@@ -299,4 +300,157 @@ header{
     float:left;
     margin:0 1px;
 }
+#ui-datepicker-div{
+    float:right;
+}
+#date_field{
+    margin-left:100px;
+}
+#applicant_form_message{
+    font-size:16px;
+    color:#000;
+    text-align:center;
+    color:green;
+}
+#applicant_form{
+    font-size:13px;
+}
+#notice{
+    color:green;
+    background-color:#F5F0F1;
+}
+#alert{
+    color:red;
+    background-color:#F7EDE6;
+}
+#hire-statement{
+    text-align:center;
+    font-size:18px;
 
+}
+#ticker{
+    margin-left:290px;
+}
+#next{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+#active_jobs{
+    text-align:center;
+}
+#job_title a{
+    font-weight:bold;
+    font-size:18px;
+    text-decoration:none;
+}
+#job_title{
+    font-size:20px;
+    margin-bottom:10px;
+    color:black;
+
+}
+#remaining_days{
+    float:right;
+    margin-left:400px;
+    font-weight:bold;
+    color:green;
+    font-size:16px;
+
+}
+#job{
+    border:solid;
+    padding:10px;
+}
+#active_jobs_title{
+    text-align:center;
+    font-size:20px;
+    font-variant:small-caps;
+    font-weight:bold;
+
+}
+#apply_now{
+    float:right;
+}
+
+#job_wrapper{
+    padding:8px;
+    border:solid;
+    overflow:hidden ;
+}
+#job_listing{
+    float:left ;
+    padding:12px;
+
+}
+.job_descriptors{
+    font-weight:bold;
+}
+#search_jobs a{
+    text-decoration:none;
+    padding:5px;
+}
+#search_applicants a,#post_new_job a{
+    text-decoration:none;
+    padding:5px;
+}
+#search_jobs{
+    font-size:15px;
+}
+#post_new_job{
+    padding:10px 20px;
+padding-right:20px;
+padding-top:20px;
+padding-bottom:50px;
+
+font-weight:bold;
+font-size: 18px;
+}
+#jobs_image{
+    width: auto;
+    height : 110px;
+    float:right;
+margin-top:20px;
+margin-right:30px;
+}
+#applicant_wrapper{
+}
+#applicant_names{
+    font-weight:bold;
+    width:20px;
+    font-variant:small-caps;
+    margin:30px;
+}
+#applicant_dob{
+    margin-right:0px;
+}
+
+#applicant_education{
+     margin-left:10px;
+text-align:left;
+}
+#applicant_experience{
+margin-left:10px;
+text-align:left;
+}
+#applicant_status{
+    margin:10px;
+text-align:left;
+}
+#applicant_checkbox{
+    margin:20px;
+}
+#process_applicants{
+    text-align:right;
+}
+#search_applicants{
+    font-size:15px;
+
+}
+#display_details{
+    background:#F2F7E6;
+}
+#post_new_job_image{
+    padding-bottom:10px;
+}

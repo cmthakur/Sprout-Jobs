@@ -1,45 +1,64 @@
 <% if admin_signed_in? %>
-
+    <%= link_to "Home", jobs_path%>
   <h1><%= @job.title %></h1>
-
-    <%= form_tag(job_path(@job), :method => 'post') do %>
-        <%= select_tag(:list,     options_for_select([['All',"all"],['Accepted',"accepted"],['Rejected',"rejected"]]))%>
-        <%= submit_tag %>
+<div id ="search_applicants">
+<%= form_tag(job_path(@job), :method => 'post') do %>
+        Show:<%= select_tag(:list,     options_for_select([['All',"all"],['Accepted',"accepted"],['Rejected',"rejected"]]))%>
+        <%= submit_tag :List %>
     <% end %>
+</div>
+<hr>
 
   <%= form_tag(process_short_list_job_path(@job), :method => 'post') do %>
+  <span id ="applicant_names">Name</span>
+  <span id ="applicant_dob">Age</span>
+  <span id ="applicant_education">Education</span>
+  <span id ="applicant_experience">Experience</span>
+  <span id ="applicant_status">Status</span>
+  <hr>
 
   <% @applicants.each do |applicant|%>
-  <%= link_to applicant.name, applicant_path(applicant), :remote => true %> |
-  <%= applicant.dob %> |
-  <%= applicant.education %>|
-  <%= applicant.experience %> |
+    <div id = "applicant_wrapper">
+   <span id ="applicant_names"><%= link_to applicant.name, applicant_path(applicant), :remote => true %> </span>
+    <span id ="applicant_dob"><%= calculate_age(applicant.dob) %></span>
+    <span id ="applicant_education"><%= applicant.education %></span>
+    <span id ="applicant_experience"><%= applicant.experience %></span>
 
-  <% if(applicant.accepted == true) %>
-  Accepted
-  <% elsif(applicant.accepted == false) %>
-  Rejected
-  <% else %>
-  Pending
-  <% end%>
+  <span id ="applicant_status">
+    <% if(applicant.accepted == true) %>
+        Accepted
+        <% elsif(applicant.accepted == false) %>
+          Rejected
+          <% else %>
+            Pending
+    <% end%>
+  </span>
 
+  <span id ="applicant_checkbox">
   <% if (applicant.accepted == nil)%>
   <%=check_box_tag("arr[]","#{applicant.id}", checked = false)%>
   <% end %>
-  <br />
+  </span>
+  </div>
   <% end %>
-
+<hr>
+<div id ="process_applicants">
+With Selected:
   <%= select_tag(:selector, options_for_select([['Accept',1],['Reject',2],['Review Later',3]],1))%>
-  <%= submit_tag %>
+  <%= submit_tag :Go %>
   <% end %>
+</div>
   <div id = "applicants"></div>
-  <%=%>
-  <%=link_to "Admin" %>
 
 <% else %>
-  <%= @job.title %>
-  <%= @job.description %>
-  <%= @job.experience %> years
-  <%= @job.deadline %>
-  <%= link_to "Apply Now", new_job_applicant_path(@job)%>
+<div id="job_wrapper">
+<div id="job_listing">
+  <span id="job_title"><%= @job.title %></span> <span> [<%= @job.category.name %>]</span><br /><br />
+  <div><%= @job.description %></div><br />
+
+  <span class="job_descriptors">Required Experience: </span><span><%= @job.experience %> years</span>
+</div>
+<div id="apply_now"><%= link_to image_tag("apply.jpg"), new_job_applicant_path(@job)%></div>
+<div id ="remaining_days"><%= date_diff_in_days(@job.deadline) %></div>
+</div>
 <% end %>
