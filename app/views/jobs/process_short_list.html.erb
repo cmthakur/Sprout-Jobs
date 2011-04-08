@@ -12,6 +12,5 @@
   <% else%>
   <%= flash[:notice] = "The applicants have been reserved for review" %>
   <% end %>
-  <%= applicant.name %> | <%= applicant.accepted %><br />
   <% end %>
 <%= link_to "Go Back", job_path(@job)%>
